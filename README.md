@@ -17,7 +17,7 @@ binary-valued observations of smooth latent functions.
 
 You can install the development version of gFPCAClassif like so: This
 package is currently available on GitHub at
-{<https://github.com/acweisha/gFPCAClassif>}
+{<https://github.com/aweishampel/gFPCAClassif>}
 
 ## Example
 
@@ -93,8 +93,8 @@ accurately discriminate 88% of the users.
  table(gsFPCA.results, acc_data_test$group)
 #>               
 #> gsFPCA.results  1  2
-#>              1 45  6
-#>              2  5 44
+#>              1 44  6
+#>              2  6 44
 ```
 
 The previous analysis trained and tested the classifier using only the
@@ -116,8 +116,8 @@ gsFPCA.results = gsFPCA_predict(gsFPCA.model.ff,
 table(gsFPCA.results, acc_data_test$group)
 #>               
 #> gsFPCA.results  1  2
-#>              1 46 18
-#>              2  4 32
+#>              1 50 23
+#>              2  0 27
 ```
 
 Adding the number of followers for each account actually decreased the
@@ -137,12 +137,13 @@ at any point during day. Because there can be inactive days the is more
 appropriate to model the data.
 
 Recall, the binary data are formatted based on 30 minute intervals
-therefore there are 48 observations per day, *m* = 48. Therefore to
-format the binary-valued matrix as described in Section , we need to
-have each row correspond to a given individual on a given day. The
-formatted binary data of the training and testing set accounts for the
-multi-level models are provided in the and matrices. The formatted data
-is used to fit the by:
+therefore there are 48 observations per day,
+![m=48](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;m%3D48 "m=48").
+Therefore to format the binary-valued matrix as described in Section ,
+we need to have each row correspond to a given individual on a given
+day. The formatted binary data of the training and testing set accounts
+for the multi-level models are provided in the and matrices. The
+formatted data is used to fit the by:
 
 ``` r
 gmfpca.cur = gMFPCA(X_dat = X_dat_m_train,
@@ -175,8 +176,9 @@ legend("bottomright",
 
 Because there are two groups in the provided data, there are two fitted
 models in the object, one model for each group. The lag in the both of
-these models is to be *q* = 3. The fitted model for the genuine accounts
-can be retrieved and viewed by
+these models is to be
+![q=3](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;q%3D3 "q=3").
+The fitted model for the genuine accounts can be retrieved and viewed by
 
 ``` r
  gmfpca.cur$gar_models_ls[[2]]
@@ -212,9 +214,11 @@ can be retrieved and viewed by
 The model consists of two components: the autoregressive model estimates
 and the initial probabilities. The initial probabilities are the
 probabilities which define the estimated probability mass function for
-the possible combinations of the first *q* initial states. From the
-fitted it is clear that the automated account’s active state is highly
-affected by the active status of the previous two days.
+the possible combinations of the first
+![q](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;q "q")
+initial states. From the fitted it is clear that the automated account’s
+active state is highly affected by the active status of the previous two
+days.
 
 The function is used to predict the groups given the binary-valued
 functional data for new accounts.

@@ -22,7 +22,7 @@ The goal of gFPCAClassif is to model and train classifiers for binary-valued fun
 
 ## Installation
 
-You can install the development version of gFPCAClassif like so: This package is currently available on GitHub at {https://github.com/acweisha/gFPCAClassif}
+You can install the development version of gFPCAClassif like so: This package is currently available on GitHub at {https://github.com/aweishampel/gFPCAClassif}
 
 ## Example
 
