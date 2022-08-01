@@ -11,7 +11,8 @@ binary-valued functional data. The package presents model-based
 classification methods for the binary-valued functional data. The
 package accounts for multiple different scenarios of the data. All of
 these models are built under the assumption that the binary data are
-binary-valued observations of smooth latent functions.
+binary-valued observations of smooth latent functions. The authors would
+like to acknowledge the NSF MMS grant number: SES 2020179.
 
 ## Installation
 
@@ -116,8 +117,8 @@ gsFPCA.results = gsFPCA_predict(gsFPCA.model.ff,
 table(gsFPCA.results, acc_data_test$group)
 #>               
 #> gsFPCA.results  1  2
-#>              1 50 23
-#>              2  0 27
+#>              1 46 17
+#>              2  4 33
 ```
 
 Adding the number of followers for each account actually decreased the
